@@ -1,0 +1,16 @@
+export const configs = {
+    controllers: "src/app/controllers",
+    models: "src/app/models",
+    services: "src/app/services",
+    routes: "src/app/routes",
+    views: "src/app/views",
+    public: "public",
+    database: "src/database",
+    migrations: "src/database/migrations",
+    seeds: "src/database/seeds",
+    config: "src/config",
+    helpers: "src/helpers",
+    middlewares: "src/middlewares",
+    providers: "src/providers",
+    commands: "src/commands",
+};

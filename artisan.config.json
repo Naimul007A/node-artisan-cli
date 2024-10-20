@@ -1,0 +1,14 @@
+{
+    
+  "paths": {
+    "controllers": "src/controllers",
+    "services": "src/services",
+    "helpers": "src/helpers",
+    "routes": "src/routes",
+    "utils": "src/utils",
+    "middlewares": "src/middlewares",
+    "files": "src"
+  },
+  "packageManager": "npm",
+  "lang": "ts"
+}
