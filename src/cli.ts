@@ -23,7 +23,7 @@ program
 // Create a simple "init" command
 program
     .command('init')
-    .description('Generate a new config file')
+    .description('Generate config file')
     .action(() => {
         init();
     });

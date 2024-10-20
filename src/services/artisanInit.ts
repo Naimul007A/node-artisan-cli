@@ -20,7 +20,7 @@ async function init() {
     "middlewares": "src/middlewares",
     "files": "src"
   },
-  "packgeManager": "npm",
+  "packageManager": "npm",
   "lang": "ts"
 }`;
     //check if artisan.config.json exists

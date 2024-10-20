@@ -51,7 +51,7 @@ async function readArtisanConfig() {
     }
 }
 async function checkConfig() {
-    const filePath = path.resolve(`${await getProjectRoot('artisan.config.json')}`, 'artisan.config.json');
+    const filePath = path.resolve(`${await getProjectRoot('package.json')}`, 'artisan.config.json');
     if (fs.existsSync(filePath)) {
         return true;
     }
