@@ -1,6 +1,6 @@
 {
   "name": "node-artisan-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "bin": {
     "artisan": "dist/cli.js"
