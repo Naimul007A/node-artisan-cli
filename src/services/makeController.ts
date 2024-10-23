@@ -3,10 +3,18 @@ import { ControllerContent } from '../conents/controllerContent';
 import { readArtisanConfig } from '../utils/index';
 import * as fs from 'fs';
 import * as path from 'path';
-async function createController(name: string) {
-    //check js or ts
+import { serviceContent } from '../conents/servicesContent';
+import { createService } from './makeService';
+async function createController(name: string, service: boolean = false) {
+//get config data
     const configData = await readArtisanConfig();
+    //get root path
     const rootPath = path.resolve(configData?.rootPath as string);
+    //check Controllers Dir exists
+    const ServicePath = path.join(rootPath, `${configData?.paths.controllers}`);
+    if (!fs.existsSync(ServicePath)) {
+        fs.mkdirSync(ServicePath, { recursive: true });
+    }
     const filePath = path.join(rootPath, `${configData?.paths.controllers}`, `${name}.${configData?.lang}`);
     if (fs.existsSync(filePath)) {
         console.log(`Controller ${name}.${configData?.lang} already exists!`.red);
@@ -30,14 +38,19 @@ async function createController(name: string) {
         if (mainName.includes(".")) {
             mainName = mainName.split(".")[0];
         }
-        const content = ControllerContent(mainName.toLowerCase(), configData?.lang as string);
         //get without last element of slice
         slice.pop();
+        const content = ControllerContent(mainName.toLowerCase(), configData?.lang as string, service, `${slice.join('/')}${mainName}Service`);
         if (fs.existsSync(path.join(rootPath, `${configData?.paths.controllers}`, slice.join('/')))) {
             fs.writeFileSync(filePath, content);
         } else {
             console.log(`Directory not found!`.red);
             return;
+        }
+        //create a service with controller
+        if (service) {
+            const serviceName = `${slice.join('/')}${mainName}Service`;
+            await createService(serviceName);
         }
         if (fs.existsSync(filePath)) {
             console.log(`Controller ${name}.${configData?.lang} created successfully!`.green);

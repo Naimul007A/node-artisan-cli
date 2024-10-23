@@ -1,6 +1,6 @@
 {
   "name": "node-artisan-cli",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "",
   "bin": {
     "artisan": "dist/cli.js"
@@ -10,8 +10,22 @@
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Naimul islam <mdnaimul2090@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naimul007A/node-artisan-cli.git"
+  },
+  "keywords": [
+    "node",
+    "cli",
+    "artisan",
+    "esm",
+    "edge",
+    " command",
+    "nodejs",
+    "commander",
+    "typescript"
+  ],
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
