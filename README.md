@@ -43,10 +43,10 @@ Change all the paths according to your project structure in the artisan.config.j
     "routes": "src/routes",
     "utils": "src/utils",
     "middlewares": "src/middlewares",
-    "files": "src"
+    "files": "src" // root directory of your project
   },
   "packageManager": "npm", // Change this to your favorite package manager
-  "lang": "ts" // which language you are using in your project
+  "lang": "ts"('ts' or 'js') // which language you are using in your project
 }
 ```
 ### Step(3): Available Commands

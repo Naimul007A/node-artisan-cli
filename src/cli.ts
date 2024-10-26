@@ -7,6 +7,7 @@ import { createController } from './services/makeController';
 import { checkConfig } from './utils';
 import { init } from './services/artisanInit';
 import { createService } from './services/makeService';
+import { createFile } from './services/makeFile';
 // Default case when no valid command is provided
 program
     .option("--version,-v", "output the version number")
@@ -49,6 +50,14 @@ program
     .action(async (name) => {
         await checkConfig();
         createService(name);
+    });
+// Create a simple "make:file" command
+program
+    .command('make:file <name>')
+    .description('Generate a new file(any type) with the given name')
+    .action(async (name) => {
+        await checkConfig();
+        createFile(name);
     });
 //test
 program.command("test <name>")

@@ -3,7 +3,6 @@ import { ControllerContent } from '../conents/controllerContent';
 import { readArtisanConfig } from '../utils/index';
 import * as fs from 'fs';
 import * as path from 'path';
-import { serviceContent } from '../conents/servicesContent';
 import { createService } from './makeService';
 async function createController(name: string, service: boolean = false) {
 //get config data
@@ -25,7 +24,7 @@ async function createController(name: string, service: boolean = false) {
         // check subdirectory and create if not exists
         if (slice.length > 1) {
             for (let i = 0; i < slice.length - 1; i++) {
-                const dir = path.join(rootPath, `${configData?.paths.controllers}`, slice[i]);
+                const dir = path.join(rootPath, `${configData?.paths.controllers}`, ...slice.slice(0, i + 1));
                 if (!fs.existsSync(dir)) {
                     fs.mkdirSync(dir, { recursive: true });
                 }

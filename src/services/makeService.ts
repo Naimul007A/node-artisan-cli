@@ -22,7 +22,7 @@ async function createService(name: string) {
         // check subdirectory and create if not exists
         if (slice.length > 1) {
             for (let i = 0; i < slice.length - 1; i++) {
-                const dir = path.join(rootPath, `${configData?.paths.services}`, slice[i]);
+                const dir = path.join(rootPath, `${configData?.paths.services}`, ...slice.slice(0, i + 1));
                 if (!fs.existsSync(dir)) {
                     fs.mkdirSync(dir, { recursive: true });
                 }
